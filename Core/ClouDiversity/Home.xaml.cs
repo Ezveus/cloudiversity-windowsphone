@@ -17,6 +17,11 @@ namespace ClouDiversity
             InitializeComponent();
             //NavigationService.Navigate(new Uri("/PivotPage1.xaml"));
             //NavigationService.Navigate(new Uri("/Home.xaml", UriKind.Relative));
+            
+        }
+        private void mesDevoirs(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/MesDevoirs.xaml", UriKind.Relative));
         }
     }
 }
