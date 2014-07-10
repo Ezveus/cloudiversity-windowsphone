@@ -20,9 +20,6 @@ using Newtonsoft.Json;
 
 namespace ClouDiversity
 {
-
-
-
     public partial class MainPage : PhoneApplicationPage
     {
         // Constructeur
@@ -65,6 +62,7 @@ namespace ClouDiversity
         {
             public string email;
             public bool success;
+            public string token;
         }
 
 
@@ -110,13 +108,13 @@ namespace ClouDiversity
 
 
             var client = new HttpClient();
-            client.BaseAddress = new Uri("http://testapp.cloudiversity.eu/");
+            client.BaseAddress = new Uri("http://hogwarts.adaedra.eu/");
             var content = new FormUrlEncodedContent(new[] 
             {
                 new KeyValuePair<string, string>("user[login]", username),
                 new KeyValuePair<string, string>("user[password]", password)
             });
-            var result = await client.PostAsync("http://testapp.cloudiversity.eu/users/sign_in.json", content);
+            var result = await client.PostAsync("http://hogwarts.adaedra.eu/users/sign_in.json", content);
 
             
 
@@ -126,39 +124,15 @@ namespace ClouDiversity
 
 
             JRet res = (JRet)JsonConvert.DeserializeObject<JRet>(resultContent);
-            var ml = res.email;
-            
-            //TextBlock1.Text = ml;
-            
-            /*
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri("http://testapp.cloudiversity.eu/");
-                var content = new FormUrlEncodedContent(new[] 
-            {
-                new KeyValuePair<string, string>("user[login]", "fluttershy"),
-                new KeyValuePair<string, string>("user[password]", "yellowquiet")
-            });
-                var result = client.PostAsync("http://testapp.cloudiversity.eu/users/sign_in.json", content).Result;
-                string resultContent = result.Content.ReadAsStringAsync().Result;
-                TextBlock1.Text = resultContent;
-                Console.WriteLine(resultContent);
-            }*/
-            
-
-
-
-
-
-
-           // wc.UploadStringAsync(formattedUri, "POST");
-
+            var myMail = res.email;
+            var myToken = res.token;
+           
 
 
 
             if (res.success == true)
             {
-                NavigationService.Navigate(new Uri("/Home.xaml", UriKind.Relative));
+                NavigationService.Navigate(new Uri("/Home.xaml?token=" + myToken + "&mail=" + myMail, UriKind.Relative));
             }
             else
                 Error.Text = "Mauvais login/mot de passe";

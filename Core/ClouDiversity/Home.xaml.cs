@@ -12,6 +12,8 @@ namespace ClouDiversity
 {
     public partial class Home : PhoneApplicationPage
     {
+        string mail = string.Empty;
+        string token = string.Empty;
         public Home()
         {
             InitializeComponent();
@@ -19,9 +21,25 @@ namespace ClouDiversity
             //NavigationService.Navigate(new Uri("/Home.xaml", UriKind.Relative));
             
         }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+
+            if (NavigationContext.QueryString.TryGetValue("token", out token))
+            {
+                
+            }
+            if (NavigationContext.QueryString.TryGetValue("mail", out mail))
+            {
+
+            }
+        }
+
         private void mesDevoirs(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/MesDevoirs.xaml", UriKind.Relative));
+
+
+            NavigationService.Navigate(new Uri("/MesDevoirs.xaml?token=" + token + "&mail=" + mail, UriKind.Relative));
         }
     }
 }

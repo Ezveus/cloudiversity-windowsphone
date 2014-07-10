@@ -27,17 +27,11 @@
             	<LineBreak/>
             	<Run/>
             </TextBlock>
-            <TextBlock Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}">
-            	<Run Text="Mes "/>
-            	<Run Text="d"/>
-            	<Run Text="evoirs"/>
-            	<LineBreak/>
-            	<Run/>
-            </TextBlock>
+            <TextBlock Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Text="Homework"/>
         </StackPanel>
 
-        <ListBox x:Name="listBox1" Margin="33,179,34,305" Grid.RowSpan="2"/>
-
+        <ListBox x:Name="listBox1" Margin="33,179,34,305" Grid.RowSpan="2" FontSize="20"/>
+        
     </Grid>
 
 </phone:PhoneApplicationPage>
