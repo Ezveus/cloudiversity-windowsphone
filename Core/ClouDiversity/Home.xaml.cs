@@ -37,9 +37,12 @@ namespace ClouDiversity
 
         private void mesDevoirs(object sender, RoutedEventArgs e)
         {
-
-
             NavigationService.Navigate(new Uri("/MesDevoirs.xaml?token=" + token + "&mail=" + mail, UriKind.Relative));
+        }
+
+        private void myGrades(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/MyGrades.xaml?token=" + token + "&mail=" + mail, UriKind.Relative));
         }
     }
 }

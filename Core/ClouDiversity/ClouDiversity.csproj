@@ -112,6 +112,9 @@
     <Compile Include="MesDevoirs.xaml.cs">
       <DependentUpon>MesDevoirs.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MyGrades.xaml.cs">
+      <DependentUpon>MyGrades.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PivotPage1.xaml.cs">
       <DependentUpon>PivotPage1.xaml</DependentUpon>
     </Compile>
@@ -145,6 +148,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MesDevoirs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyGrades.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
