@@ -24,7 +24,7 @@ namespace ClouDiversity
         string token = string.Empty;
         string mail = string.Empty;
 
-
+/*
         public class MyGradesJson
         {
             [JsonProperty("periods")]
@@ -57,38 +57,68 @@ namespace ClouDiversity
             public string end_date { get; set; }
         }
 
-       /* public class AgendaElement
+
+*/
+
+
+
+        public class Period2
         {
-            [JsonProperty("id")]
-            public string id { get; set; }
-            [JsonProperty("title")]
-            public string title { get; set; }
-            [JsonProperty("deadline")]
-            public string deadline { get; set; }
-            [JsonProperty("duetime")]
-            public string duetime { get; set; }
-            [JsonProperty("progress")]
-            public string progress { get; set; }
-            [JsonProperty("AgendaElementDiscipline")]
-            public string AgendaElementDiscipline { get; set; }
+            public int id { get; set; }
+            public string name { get; set; }
+            public string start_date { get; set; }
+            public string end_date { get; set; }
+        }
 
-            [JsonProperty("progress")]
-            public string title { get; set; }
+        public class Discipline2
+        {
+            public int id { get; set; }
+            public string name { get; set; }
+        }
 
-        }*/
+        public class Teacher
+        {
+            public int id { get; set; }
+            public int user_id { get; set; }
+            public string login { get; set; }
+            public string name { get; set; }
+        }
+
+        public class Grade
+        {
+            public int id { get; set; }
+            public int note { get; set; }
+            public int coefficient { get; set; }
+            public string assessment { get; set; }
+            public Teacher teacher { get; set; }
+        }
+
+        public class Discipline
+        {
+            public Discipline2 discipline { get; set; }
+            public List<Grade> grades { get; set; }
+        }
+
+        public class Period
+        {
+            public Period2 period { get; set; }
+            public List<Discipline> disciplines { get; set; }
+        }
+
+        public class RootObject
+        {
+            public List<Period> periods { get; set; }
+        }
+
+
 
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
 
-            if (NavigationContext.QueryString.TryGetValue("token", out token))
-            {
-                //listBox1.Items.Add(token);
+            if (NavigationContext.QueryString.TryGetValue("token", out token)){
             }
-            if (NavigationContext.QueryString.TryGetValue("mail", out mail))
-            {
-                //listBox1.Items.Add(mail);
-                // Whatever
+            if (NavigationContext.QueryString.TryGetValue("mail", out mail)){
             }
             loadApi(mail, token);
         }
@@ -97,13 +127,7 @@ namespace ClouDiversity
         public void wc_UploadStringCompleted(object sender, UploadStringCompletedEventArgs e)
         {
             System.Diagnostics.Debug.WriteLine("BONDOUR");
-            //TextBlock1.Text = e.Result;
-
-            //JsonConvert.DeserializeObject(e.Result);
-            //var lol = e.Result;
             var test = e.Error;
-            //listBox1.Items.Add(test);
-            //TextBlock1.Text = test.ToString();
 
         }
 
@@ -131,36 +155,20 @@ namespace ClouDiversity
 
             // Just as an example I'm turning the response into a string here
                 string responseAsString = await response.Content.ReadAsStringAsync();
-               
-             // var resJson = JsonConvert.DeserializeObject<List<periods>>(responseAsString);
-            var resJson = JsonConvert.DeserializeObject<Periods>(responseAsString);
-                //listBox2.Items.Add(responseAsString);
 
-                //int nb = elements.Length;
+                var resJson = JsonConvert.DeserializeObject<RootObject>(responseAsString);
+
             //foreach (var perioddata in resJson.perioddata)
             //{
 
             //}
-            listBox2.Items.Add(resJson.perioddata.Count);
+                listBox2.Items.Add(resJson.periods.Count);
+        
+            //listBox2.Items.Add(responseAsString);
 
-            
-                   // listBox2.Items.Add(resJson.perioddata.ToArray()[i].period.id);
+           // listBox2.Items.Add(resJson.perioddata.Count);
 
-                    //listBox2.Items.Add(elements[i].period.id);
-                   // listBox2.Items.Add(elements[i].period.id);
-                    //listBox2.Items.Add("   " + elements[i].name);
-                    
-                    
-                    
-
-                    //listBox1.Items.Add("   " + elements[i].title + " (" + elements[i].progress + " %)");
-          
-            /*var id = elements[0].id;
-                
-            
-            
-            var full_name = elements[0].full_name;
-                listBox1.Items.Add("id: "+id+" name: "+full_name);*/
+    
  
 
 
@@ -172,15 +180,6 @@ namespace ClouDiversity
         public MyGrades()
         {
             InitializeComponent();
-
-           /* ListBox listBox1 = new ListBox();
-            listBox1.Items.Add("Item 1");
-            listBox1.Items.Add("Item 2");
-            listBox1.Items.Add("Item 3");
-            listBox1.Width = 140;
-            //listBox1.SelectionChanged += ListBox_SelectionChanged;
-            */
-            // Add the list box to a parent container in the visual tree.
 
         }
     }

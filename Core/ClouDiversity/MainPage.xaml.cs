@@ -75,6 +75,9 @@ namespace ClouDiversity
             password = this.Password.Password;
             username = this.Username.Text;
 
+            password = "password";
+            username = "grangehe";
+
             
 
             WebClient webClient = new WebClient();
