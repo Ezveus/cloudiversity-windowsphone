@@ -162,11 +162,26 @@ namespace ClouDiversity
             //{
 
             //}
-                listBox2.Items.Add(resJson.periods.Count);
-        
-            //listBox2.Items.Add(responseAsString);
 
-           // listBox2.Items.Add(resJson.perioddata.Count);
+                for (int i = 0; i < resJson.periods.Count; i++ )
+                {
+                    //listBox2.Items.Add(resJson.periods[i].disciplines.Count);
+                    for (int j = 0; j < resJson.periods[i].disciplines.Count; j++)
+                    {
+                        for (int k = 0; k < resJson.periods[i].disciplines[j].grades.Count; k++)
+                        {
+                            var assessment = resJson.periods[i].disciplines[j].grades[k].assessment;
+                            var coefficient = resJson.periods[i].disciplines[j].grades[k].coefficient;
+                            var note = resJson.periods[i].disciplines[j].grades[k].note;
+                            var teacherName = resJson.periods[i].disciplines[j].grades[k].teacher.name;
+                            listBox2.Items.Add(assessment + " - " + teacherName);
+                            listBox2.Items.Add("  Grade : " + note);
+                            listBox2.Items.Add("  Coefficient : " + coefficient);
+                            listBox2.Items.Add(" ");
+
+                        }
+                    }
+                }
 
     
  
