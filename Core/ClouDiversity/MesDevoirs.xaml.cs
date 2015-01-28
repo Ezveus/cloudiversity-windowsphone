@@ -122,7 +122,7 @@ namespace ClouDiversity
             HttpClient httpClient = new HttpClient();
 
             // Add a new Request Message
-            HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Get, "http://hogwarts.adaedra.eu/agenda.json");
+            HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Get, "http://hogwarts.cloudiversity.eu/agenda.json");
 
             // Add our custom headers
 
@@ -149,7 +149,7 @@ namespace ClouDiversity
                 {
                     listBox1.Items.Add(elements[0].deadline);
                     listBox1.Items.Add("   " + elements[i].title + " (" + elements[i].progress + " %)");
-                    
+                    listBox1.Items.Add("-----------------------");
                     
                     
 

@@ -1,7 +1,7 @@
 ﻿
 using System.Data.Linq;
 
-namespace MyScheduleAppWP7v1
+namespace ClouDiversity
 {
     public class ScheduleDataContext : DataContext
     {

@@ -108,6 +108,12 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MyAssessments.xaml.cs">
+      <DependentUpon>MyAssessments.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyAverages.xaml.cs">
+      <DependentUpon>MyAverages.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MyDefinedEvents.cs" />
     <Compile Include="MesDevoirs.xaml.cs">
       <DependentUpon>MesDevoirs.xaml</DependentUpon>
@@ -148,6 +154,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MesDevoirs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyAssessments.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyAverages.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

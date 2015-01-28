@@ -1,8 +1,7 @@
-﻿
+﻿using System;
 using System.Data.Linq.Mapping;
-using System;
 
-namespace MyScheduleAppWP7v1
+namespace ClouDiversity
 {
 
     [Table]

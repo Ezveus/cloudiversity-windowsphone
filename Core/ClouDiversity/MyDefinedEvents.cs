@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MyScheduleAppWP7v1
+namespace ClouDiversity
 {
     public class MyDefinedEvents
     {

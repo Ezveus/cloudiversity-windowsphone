@@ -15,12 +15,13 @@
     <Grid x:Name="LayoutRoot" Background="#303030">
         <Grid HorizontalAlignment="Left" Height="768" VerticalAlignment="Top" Width="480">
         <Button Click="mesDevoirs" Content="My Homework" HorizontalAlignment="Left" Height="139" Margin="28,76,0,0" VerticalAlignment="Top" Width="424" FontSize="36"/>
-        <Button  Content="My Textbook" HorizontalAlignment="Left" Height="139" Margin="28,220,0,0" VerticalAlignment="Top" Width="424" FontSize="36"/>
-        <Button  Click="myGrades" Content="My Grades" HorizontalAlignment="Left" Height="139" Margin="28,359,0,0" VerticalAlignment="Top" Width="424" FontSize="36"/>
+        <Button  Click="myGrades" Content="My Grades" HorizontalAlignment="Left" Height="139" Margin="28,220,0,0" VerticalAlignment="Top" Width="424" FontSize="36"/>
+            <Button  Click="myAssessments" Content="My Assessments" HorizontalAlignment="Left" Height="139" Margin="28,359,0,0" VerticalAlignment="Top" Width="424" FontSize="36"/>
+            <Button  Click="myAverages" Content="My Averages" HorizontalAlignment="Left" Height="139" Margin="28,498,0,0" VerticalAlignment="Top" Width="424" FontSize="36"/>
 
 
 
-    </Grid>
+        </Grid>
     </Grid>
 
     <!--LayoutRoot est la grille racine où tout le contenu de la page est placé-->

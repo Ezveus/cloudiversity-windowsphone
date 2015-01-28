@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MyScheduleAppWP7v1
+namespace ClouDiversity
 {
     public class DatabaseClass
     {

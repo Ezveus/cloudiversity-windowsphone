@@ -44,5 +44,15 @@ namespace ClouDiversity
         {
             NavigationService.Navigate(new Uri("/MyGrades.xaml?token=" + token + "&mail=" + mail, UriKind.Relative));
         }
+
+        private void myAssessments(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/MyAssessments.xaml?token=" + token + "&mail=" + mail, UriKind.Relative));
+        }
+
+        private void myAverages(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/MyAverages.xaml?token=" + token + "&mail=" + mail, UriKind.Relative));
+        }
     }
 }

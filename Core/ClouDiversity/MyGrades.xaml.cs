@@ -140,7 +140,7 @@ namespace ClouDiversity
             HttpClient httpClient = new HttpClient();
 
             // Add a new Request Message
-            HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Get, "http://hogwarts.adaedra.eu/evaluations/grades.json?as=student");
+            HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Get, "http://hogwarts.cloudiversity.eu/evaluations/grades.json?as=student");
 
             // Add our custom headers
 
@@ -163,22 +163,26 @@ namespace ClouDiversity
 
             //}
 
-                for (int i = 0; i < resJson.periods.Count; i++ )
-                {
-                    //listBox2.Items.Add(resJson.periods[i].disciplines.Count);
-                    for (int j = 0; j < resJson.periods[i].disciplines.Count; j++)
-                    {
-                        for (int k = 0; k < resJson.periods[i].disciplines[j].grades.Count; k++)
-                        {
-                            var assessment = resJson.periods[i].disciplines[j].grades[k].assessment;
-                            var coefficient = resJson.periods[i].disciplines[j].grades[k].coefficient;
-                            var note = resJson.periods[i].disciplines[j].grades[k].note;
-                            var teacherName = resJson.periods[i].disciplines[j].grades[k].teacher.name;
-                            listBox2.Items.Add(assessment + " - " + teacherName);
-                            listBox2.Items.Add("  Grade : " + note);
-                            listBox2.Items.Add("  Coefficient : " + coefficient);
-                            listBox2.Items.Add(" ");
+                foreach (Period period in resJson.periods) {
+                    var period2 = period.period;
+                    foreach (Discipline discipline in period.disciplines) {
+                        var discipline2 = discipline.discipline;
+                        foreach (Grade grade in discipline.grades) {
+                            var assessment = grade.assessment;
+                            var coefficient = grade.coefficient;
+                            var note = grade.note;
+                            var teacherName = grade.teacher.name;
 
+                            listBox2.Items.Add("Grade added");
+                            listBox2.Items.Add("  By " + teacherName);
+                            listBox2.Items.Add("  For discipline " + discipline2.name);
+                            listBox2.Items.Add("  For period (" + period2.start_date + " - " + period2.end_date + ")");
+                            listBox2.Items.Add(" ");
+                            listBox2.Items.Add(note + " / 20 - Coefficient: " + coefficient);
+                            if (!string.IsNullOrEmpty(assessment)) {
+                                listBox2.Items.Add(assessment);
+                            }
+                            listBox2.Items.Add("-----------------------");
                         }
                     }
                 }

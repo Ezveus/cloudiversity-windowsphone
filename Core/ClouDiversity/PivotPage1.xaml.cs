@@ -12,7 +12,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using Microsoft.Phone.Controls;
 
-namespace MyScheduleAppWP7v1
+namespace ClouDiversity
 {
     public partial class PivotPage1 : PhoneApplicationPage
     {

@@ -2,7 +2,7 @@
 using System.Windows;
 using Microsoft.Phone.Controls;
 
-namespace MyScheduleAppWP7v1
+namespace ClouDiversity
 {
     public partial class EditEventPage : PhoneApplicationPage
     {

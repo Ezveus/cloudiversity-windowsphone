@@ -90,34 +90,34 @@ namespace ClouDiversity
             //
 
 
-            string param = "?user[login]=toto&user[password]=tutu";
-            webClient.UploadStringCompleted += new UploadStringCompletedEventHandler(webClient_DownloadStringCompleted); //new UploadStringCompletedEventHandler(webClient_DownloadStringCompleted);
- 
-            webClient.UploadStringAsync(new Uri(string.Format("http://testapp.cloudiversity.eu/users/sign_in.json")), "POST", param);
-
-
-
-
-            String data = "?user[login]=fluttershy&user[password]=yellowquiet";
-            WebClient wc = new WebClient();
-            Uri uri = new Uri("http://testapp.cloudiversity.eu/users/sign_in.json");
-            wc.UploadStringCompleted += new UploadStringCompletedEventHandler(wc_UploadStringCompleted);
-            wc.Headers["Content-Type"] = "form-data";
-            //wc.Encoding = Encoding.UTF8;
-            //wc.
-            wc.Encoding = System.Text.Encoding.UTF8;
-            wc.UploadStringAsync(uri, "POST", data);
+//            string param = "?user[login]=toto&user[password]=tutu";
+//            webClient.UploadStringCompleted += new UploadStringCompletedEventHandler(webClient_DownloadStringCompleted); //new UploadStringCompletedEventHandler(webClient_DownloadStringCompleted);
+// 
+//            webClient.UploadStringAsync(new Uri(string.Format("http://testapp.cloudiversity.eu/users/sign_in.json")), "POST", param);
+//
+//
+//
+//
+//            String data = "?user[login]=fluttershy&user[password]=yellowquiet";
+//            WebClient wc = new WebClient();
+//            Uri uri = new Uri("http://testapp.cloudiversity.eu/users/sign_in.json");
+//            wc.UploadStringCompleted += new UploadStringCompletedEventHandler(wc_UploadStringCompleted);
+//            wc.Headers["Content-Type"] = "form-data";
+//            //wc.Encoding = Encoding.UTF8;
+//            //wc.
+//            wc.Encoding = System.Text.Encoding.UTF8;
+//            wc.UploadStringAsync(uri, "POST", data);
 
 
 
             var client = new HttpClient();
-            client.BaseAddress = new Uri("http://hogwarts.adaedra.eu/");
+            client.BaseAddress = new Uri("http://hogwarts.cloudiversity.eu/");
             var content = new FormUrlEncodedContent(new[] 
             {
                 new KeyValuePair<string, string>("user[login]", username),
                 new KeyValuePair<string, string>("user[password]", password)
             });
-            var result = await client.PostAsync("http://hogwarts.adaedra.eu/users/sign_in.json", content);
+            var result = await client.PostAsync("http://hogwarts.cloudiversity.eu/users/sign_in.json", content);
 
             
 
