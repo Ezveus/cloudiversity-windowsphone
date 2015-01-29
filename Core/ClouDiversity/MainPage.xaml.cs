@@ -75,40 +75,7 @@ namespace ClouDiversity
             password = this.Password.Password;
             username = this.Username.Text;
 
-            password = "password";
-            username = "grangehe";
-
-            
-
             WebClient webClient = new WebClient();
-
-
-            //webClient.Headers["Content-Type"] = "application/x-www-form-urlencoded";
-            //webClient.Headers["user[login]"] = "LOL";
-            //webClient.Headers["user[password]"] = "LOL"; 
-            //webClient.DownloadStringCompleted += webClient_DownloadStringCompleted;
-            //
-
-
-//            string param = "?user[login]=toto&user[password]=tutu";
-//            webClient.UploadStringCompleted += new UploadStringCompletedEventHandler(webClient_DownloadStringCompleted); //new UploadStringCompletedEventHandler(webClient_DownloadStringCompleted);
-// 
-//            webClient.UploadStringAsync(new Uri(string.Format("http://testapp.cloudiversity.eu/users/sign_in.json")), "POST", param);
-//
-//
-//
-//
-//            String data = "?user[login]=fluttershy&user[password]=yellowquiet";
-//            WebClient wc = new WebClient();
-//            Uri uri = new Uri("http://testapp.cloudiversity.eu/users/sign_in.json");
-//            wc.UploadStringCompleted += new UploadStringCompletedEventHandler(wc_UploadStringCompleted);
-//            wc.Headers["Content-Type"] = "form-data";
-//            //wc.Encoding = Encoding.UTF8;
-//            //wc.
-//            wc.Encoding = System.Text.Encoding.UTF8;
-//            wc.UploadStringAsync(uri, "POST", data);
-
-
 
             var client = new HttpClient();
             client.BaseAddress = new Uri("http://hogwarts.cloudiversity.eu/");
@@ -119,13 +86,7 @@ namespace ClouDiversity
             });
             var result = await client.PostAsync("http://hogwarts.cloudiversity.eu/users/sign_in.json", content);
 
-            
-
-
-
             string resultContent = result.Content.ReadAsStringAsync().Result;
-
-
             JRet res = (JRet)JsonConvert.DeserializeObject<JRet>(resultContent);
             var myMail = res.email;
             var myToken = res.token;
