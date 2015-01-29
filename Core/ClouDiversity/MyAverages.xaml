@@ -22,7 +22,8 @@
 
         <!--TitlePanel contient le nom de l'application et le titre de la page-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="MON APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Style="{StaticResource PhoneTextNormalStyle}" Text="Cloudiversity">
+            </TextBlock>
             <TextBlock Text="My Averages" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
         <ListBox x:Name="AveragesList" Margin="33,45,34,10" FontSize="20" Grid.Row="1">
