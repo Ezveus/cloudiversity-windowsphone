@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="fr-FR" />
-  <App xmlns="" ProductID="{ffdd28f5-ff72-4a0e-8318-3f6b56674c18}" Title="ClouDiversity" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="ClouDiversity author" Description="Sample description" Publisher="ClouDiversity" PublisherID="{7b8b80b2-fc71-455a-99eb-89cd3fadebbb}">
+  <App xmlns="" ProductID="{ffdd28f5-ff72-4a0e-8318-3f6b56674c18}" Title="Cloudiversity" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Cloudiversity team" Description="Sample description" Publisher="Cloudiversity" PublisherID="{7b8b80b2-fc71-455a-99eb-89cd3fadebbb}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
@@ -19,7 +19,7 @@
           <SmallImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileSmall.png</SmallImageURI>
           <Count>0</Count>
           <BackgroundImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileMedium.png</BackgroundImageURI>
-          <Title>ClouDiversity</Title>
+          <Title>Cloudiversity</Title>
           <BackContent></BackContent>
           <BackBackgroundImageURI></BackBackgroundImageURI>
           <BackTitle></BackTitle>

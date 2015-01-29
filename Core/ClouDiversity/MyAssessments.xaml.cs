@@ -55,8 +55,14 @@ namespace ClouDiversity {
             public List<Period> periods { get; set; }
         }
 
-
-
+        private class AssessmentItem {
+            public string Discipline { get; set; }
+            public string Teacher { get; set; }
+            public string Assessment { get; set; }
+            public string StartDate { get; set; }
+            public string EndDate { get; set; }
+            public string SchoolClassAssessment { get; set; }
+        }
 
         protected override void OnNavigatedTo(NavigationEventArgs e) {
 
@@ -111,18 +117,24 @@ namespace ClouDiversity {
                         var assessment_str = assessement.assessment;
                         var schoolClassAssessment = assessement.school_class_assessment;
                         var teacherName = assessement.teacher.name;
+                        string sca_str;
 
-                        listBox2.Items.Add("Assessment added");
-                        listBox2.Items.Add("  By " + teacherName);
-                        listBox2.Items.Add("  For discipline " + discipline2.name);
-                        listBox2.Items.Add("  For period (" + period2.start_date + " - " + period2.end_date + ")");
                         if (schoolClassAssessment)
                         {
-                            listBox2.Items.Add("  Assigned to whole class");
+                            sca_str = "Assigned to whole class";
                         }
-                        listBox2.Items.Add(" ");
-                        listBox2.Items.Add(assessment_str);
-                        listBox2.Items.Add("-----------------------");
+                        else
+                        {
+                            sca_str = "Assigned to you";
+                        }
+                        AssessmentsList.Items.Add(new AssessmentItem() {
+                            Discipline = discipline2.name,
+                            Assessment = assessment_str,
+                            StartDate = period2.start_date,
+                            EndDate = period2.end_date,
+                            Teacher = teacherName,
+                            SchoolClassAssessment = sca_str
+                        });
                     }
                 }
             }

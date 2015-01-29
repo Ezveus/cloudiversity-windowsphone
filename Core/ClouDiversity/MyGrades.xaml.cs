@@ -52,9 +52,9 @@ namespace ClouDiversity
             [JsonProperty("name")]
             public string name { get; set; }
             [JsonProperty("start_date")]
-            public string start_date { get; set; }
+            public string StartDate { get; set; }
             [JsonProperty("end_date")]
-            public string end_date { get; set; }
+            public string EndDate { get; set; }
         }
 
 
@@ -173,16 +173,20 @@ namespace ClouDiversity
                             var note = grade.note;
                             var teacherName = grade.teacher.name;
 
-                            listBox2.Items.Add("Grade added");
-                            listBox2.Items.Add("  By " + teacherName);
-                            listBox2.Items.Add("  For discipline " + discipline2.name);
-                            listBox2.Items.Add("  For period (" + period2.start_date + " - " + period2.end_date + ")");
-                            listBox2.Items.Add(" ");
-                            listBox2.Items.Add(note + " / 20 - Coefficient: " + coefficient);
-                            if (!string.IsNullOrEmpty(assessment)) {
-                                listBox2.Items.Add(assessment);
+                            if (string.IsNullOrEmpty(assessment))
+                            {
+                                assessment = "No assessment given";
                             }
-                            listBox2.Items.Add("-----------------------");
+
+                            GradesList.Items.Add(new GradeItem() {
+                                Discipline = discipline2.name,
+                                Note = note,
+                                Assessment = assessment,
+                                StartDate = period2.start_date,
+                                EndDate = period2.end_date,
+                                Coefficient = coefficient,
+                                Teacher = teacherName
+                            });
                         }
                     }
                 }
@@ -194,6 +198,17 @@ namespace ClouDiversity
             
 
 
+        }
+
+        private class GradeItem
+        {
+            public string Discipline { get; set; }
+            public int Coefficient { get; set; }
+            public string Teacher { get; set; }
+            public string Assessment { get; set; }
+            public string StartDate { get; set; }
+            public string EndDate { get; set; }
+            public int Note { get; set; }
         }
 
         public MyGrades()

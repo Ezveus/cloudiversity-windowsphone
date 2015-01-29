@@ -24,7 +24,37 @@
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
             <TextBlock Text="My Assessments" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
-        <ListBox x:Name="listBox2" Margin="33,45,34,10" FontSize="20" Grid.Row="1"/>
+        <ListBox x:Name="AssessmentsList" Margin="33,45,34,10" FontSize="20" Grid.Row="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Grade added"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="By "></TextBlock>
+                            <TextBlock Text="{Binding Teacher}"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="For discipline "></TextBlock>
+                            <TextBlock Text="{Binding Discipline}"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="For period ("></TextBlock>
+                            <TextBlock Text="{Binding StartDate}"></TextBlock>
+                            <TextBlock Text=" - "></TextBlock>
+                            <TextBlock Text="{Binding EndDate}"></TextBlock>
+                            <TextBlock Text=")"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding SchoolClassAssessment}"></TextBlock>
+                        </StackPanel>
+                        <TextBlock Text="{Binding Assessment}"></TextBlock>
+                        <TextBlock Text=" "></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
         <!--ContentPanel - placez tout contenu supplémentaire ici-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
 

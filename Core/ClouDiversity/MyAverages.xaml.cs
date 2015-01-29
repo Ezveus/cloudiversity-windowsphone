@@ -18,8 +18,10 @@ namespace ClouDiversity {
         public class Period2 {
             public int id { get; set; }
             public string name { get; set; }
-            public string start_date { get; set; }
-            public string end_date { get; set; }
+            [JsonProperty("start_date")]
+            public string StartDate { get; set; }
+            [JsonProperty("end_date")]
+            public string EndDate { get; set; }
         }
 
         public class Discipline2 {
@@ -50,6 +52,14 @@ namespace ClouDiversity {
 
         public class RootObject {
             public List<Period> periods { get; set; }
+        }
+
+        private class AverageItem
+        {
+            public string Discipline { get; set; }
+            public string StartDate { get; set; }
+            public string EndDate { get; set; }
+            public double Note { get; set; }
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e) {
@@ -93,11 +103,13 @@ namespace ClouDiversity {
                     var discipline2 = discipline.discipline;
                     var average = discipline.average;
 
-                    listBox2.Items.Add("Average for discipline " + discipline2.name);
-                    listBox2.Items.Add("  For period (" + period2.start_date + " - " + period2.end_date + ")");
-                    listBox2.Items.Add(" ");
-                    listBox2.Items.Add(average.note + " / 20");
-                    listBox2.Items.Add("-----------------------");
+                    AveragesList.Items.Add(new AverageItem()
+                    {
+                        Discipline = discipline2.name,
+                        Note = average.note,
+                        StartDate = period2.StartDate,
+                        EndDate = period2.EndDate
+                    });
                 }
             }
         }

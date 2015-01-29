@@ -19,7 +19,7 @@ using Newtonsoft.Json;
 
 namespace ClouDiversity
 {
-    public partial class Page1 : PhoneApplicationPage
+    public partial class HomeworksPage : PhoneApplicationPage
     {
         string token = string.Empty;
         string mail = string.Empty;
@@ -42,34 +42,29 @@ namespace ClouDiversity
         public class AgendaElement
         {
             [JsonProperty("id")]
-            public string id { get; set; }
+            public string Id { get; set; }
             [JsonProperty("title")]
-            public string title { get; set; }
+            public string Title { get; set; }
             [JsonProperty("deadline")]
-            public string deadline { get; set; }
+            public string Deadline { get; set; }
             [JsonProperty("duetime")]
-            public string duetime { get; set; }
+            public string Duetime { get; set; }
             [JsonProperty("progress")]
-            public string progress { get; set; }
+            public string Progress { get; set; }
             [JsonProperty("AgendaElementDiscipline")]
             public string AgendaElementDiscipline { get; set; }
-
-            /*[JsonProperty("progress")]
-            public string title { get; set; }*/
-
         }
 
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-
             if (NavigationContext.QueryString.TryGetValue("token", out token))
             {
-                //listBox1.Items.Add(token);
+                //HomeworksList.Items.Add(token);
             }
             if (NavigationContext.QueryString.TryGetValue("mail", out mail))
             {
-                //listBox1.Items.Add(mail);
+                //HomeworksList.Items.Add(mail);
                 // Whatever
             }
             loadApi(mail, token);
@@ -84,7 +79,7 @@ namespace ClouDiversity
             //JsonConvert.DeserializeObject(e.Result);
             //var lol = e.Result;
             var test = e.Error;
-            //listBox1.Items.Add(test);
+            //HomeworksList.Items.Add(test);
             //TextBlock1.Text = test.ToString();
 
         }
@@ -92,33 +87,6 @@ namespace ClouDiversity
 
         private async void loadApi(string mmail, string mtoken)
         {
-
-                      /* var client = new HttpClient();
-            client.BaseAddress = new Uri("http://hogwarts.adaedra.eu/");
-            var content = new FormUrlEncodedContent(new[] 
-            {
-                new KeyValuePair<string, string>("X-User-Email", mail),
-                new KeyValuePair<string, string>("X-User-Token", token)
-            });
-
-
-            var request = new HttpRequestMessage()
-            {
-                RequestUri = new Uri("http://hogwarts.adaedra.eu/agenda.json"),
-                Method = HttpMethod.Get
-            };
-            request.Headers.Add("X-User-Email", mail);
-            request.Headers.Add("X-User-Token", token);
-
-             //= await client.SetAsync(request);
-            var result = await client.SendAsync(request);
-
-            string resultContent = await result.Content.ReadAsStringAsync();
-            //string resultContent = result.Content.ReadAsStringAsync().Result;
-            listBox1.Items.Add(resultContent);*/
-
-
-
             HttpClient httpClient = new HttpClient();
 
             // Add a new Request Message
@@ -126,7 +94,6 @@ namespace ClouDiversity
 
             // Add our custom headers
 
-           // listBox1.Items.Add("Mail: " + mmail + "<<");
             requestMessage.Headers.Add("X-User-Email", mmail);
             requestMessage.Headers.Add("X-User-Token", mtoken);
 
@@ -143,45 +110,32 @@ namespace ClouDiversity
 
                 var elements = resJson.ToArray();
 
-                int nb = elements.Length;
-
-                for (int i = 0; i < nb; i++)
+                foreach (var homework in elements)
                 {
-                    listBox1.Items.Add(elements[0].deadline);
-                    listBox1.Items.Add("   " + elements[i].title + " (" + elements[i].progress + " %)");
-                    listBox1.Items.Add("-----------------------");
-                    
-                    
-
-                    //listBox1.Items.Add("   " + elements[i].title + " (" + elements[i].progress + " %)");
+//                    HomeworksList.Items.Add(elements[0].deadline);
+//                    HomeworksList.Items.Add("   " + elements[i].Title + " (" + elements[i].progress + " %)");
+//                    HomeworksList.Items.Add("-----------------------");
+                    HomeworksList.Items.Add(homework);
                 }
-            /*var id = elements[0].id;
-                
-            
-            
-            var full_name = elements[0].full_name;
-                listBox1.Items.Add("id: "+id+" name: "+full_name);*/
- 
-
-
-            
-
-
         }
 
-        public Page1()
+        private List<AgendaElement> Ls;
+
+        public HomeworksPage()
         {
             InitializeComponent();
-
-           /* ListBox listBox1 = new ListBox();
-            listBox1.Items.Add("Item 1");
-            listBox1.Items.Add("Item 2");
-            listBox1.Items.Add("Item 3");
-            listBox1.Width = 140;
-            //listBox1.SelectionChanged += ListBox_SelectionChanged;
-            */
-            // Add the list box to a parent container in the visual tree.
-
+//            var homework = new AgendaElement();
+//            homework.Title = "Test";
+//            homework.Deadline = "Plop";
+//            homework.Progress = "42";
+//
+//            var homework2 = new AgendaElement();
+//            homework2.Title = "Test2";
+//            homework2.Deadline = "Plop2";
+//            homework2.Progress = "42";
+//            homework2.Duetime = "23:42";
+//            Ls = new List<AgendaElement>() { homework, homework2 };
+//            DataContext = this;
         }
     }
 }
